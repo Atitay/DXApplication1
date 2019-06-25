@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GorgeShipping.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Serialization;
@@ -23,6 +25,11 @@ namespace GorgeShipping
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+
+            //use Db Sql server
+            services.AddDbContext<ApplicationDbContext>(options =>
+               options.UseSqlServer(
+                   Configuration.GetConnectionString("DefaultConnection")));
 
             services
                 .AddMvc()
