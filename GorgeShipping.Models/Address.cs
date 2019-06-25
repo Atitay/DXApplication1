@@ -17,7 +17,7 @@ namespace GorgeShipping.Models
         public string AddressDetail { get; set; }
         public string District { get; set; }
         public string Province { get; set; }
-        public int Code { get; set; }
-        public string TelNo { get; set; }
+        public string Code { get; set; }
+       
     }
 }

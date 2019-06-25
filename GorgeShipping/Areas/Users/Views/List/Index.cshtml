@@ -1,0 +1,76 @@
+﻿@model IEnumerable<GorgeShipping.Models.User>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2>Contact List</h2>
+    <br />
+    <div class="text-right">
+        <a asp-action="Create" class="btn btn-info"> <i class="fas fa-user-plus"></i> &nbsp; New Contact</a>
+    </div>
+
+    <br /> <br />
+    <div>
+        <table class="table table-striped border">
+            <tr class="table-striped">
+                <th>
+                    @Html.DisplayNameFor(m => m.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.FirstOrDefault().TelephoneNumbers.FirstOrDefault().TelNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.FirstOrDefault().Addresses.FirstOrDefault().AddressDetail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.FirstOrDefault().Addresses.FirstOrDefault().District)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.FirstOrDefault().Addresses.FirstOrDefault().Province)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.FirstOrDefault().Addresses.FirstOrDefault().Code)
+                </th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.TelephoneNumbers.FirstOrDefault().TelNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Addresses.FirstOrDefault().AddressDetail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Addresses.FirstOrDefault().District)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Addresses.FirstOrDefault().Province)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Addresses.FirstOrDefault().Code)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
+
+

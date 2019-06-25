@@ -54,8 +54,9 @@ namespace GorgeShipping
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=User}/{action=Index}/{id?}");
+                  name: "areas",
+                  template: "{area=Users}/{controller=Home}/{action=Index}/{id?}"
+                );
             });
         }
     }

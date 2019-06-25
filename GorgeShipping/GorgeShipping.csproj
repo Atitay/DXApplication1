@@ -15,11 +15,11 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\GorgeShipping.Data\GorgeShipping.Data.csproj" />
     <ProjectReference Include="..\GorgeShipping.Models\GorgeShipping.Models.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <ProjectExtensions><VisualStudio><UserProperties TemplateFeatures="NETCORE CS BASELINE" /></VisualStudio></ProjectExtensions>
 </Project>

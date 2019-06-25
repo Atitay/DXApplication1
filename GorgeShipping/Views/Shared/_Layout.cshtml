@@ -32,19 +32,21 @@
 
     @* JSZip for client side export *@
     @*<script src="~/js/devextreme/jszip.js"></script>*@
-    
+
     <script src="~/js/devextreme/dx.all.js"></script>
     <script src="~/js/devextreme/vectormap-data/world.js"></script>
     <script src="~/js/devextreme/aspnet/dx.aspnet.data.js"></script>
     <script src="~/js/devextreme/aspnet/dx.aspnet.mvc.js"></script>
-
+    <script src="https://kit.fontawesome.com/5309500501.js"></script>  @*add icon*@
 </head>
 
 <body>
-
+    
+    <partial name="_NavbarPartial" />
     
     <main role="main" class="container">
         @RenderBody()
+        @RenderSection("Scripts", required: false)
     </main>
 </body>
 

@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GorgeShipping.Controllers
 {
-    public class AddressController : Controller
+    [Area("Users")]
+    public class HomeController : Controller
     {
         public IActionResult Index()
         {
