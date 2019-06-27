@@ -5,23 +5,24 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
+    <title>Delete</title>
 </head>
 <body>
-    <h2 class="text-info">Create Contact</h2>
-
-    <form method="post" enctype="multipart/form-data">
+    <h2 class="text-info">Delete Contact</h2>
+    <br />
+    <form method="post">
         <br />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <input hidden asp-for="Users.id" />
 
         <div class="form-group row">
             <div class="col-2">
                 <label asp-for="Users.Name"></label>
             </div>
             <div class="col-3">
-                <input asp-for="Users.Name" class="form-control" />
+                <input asp-for="Users.Name" readonly class="form-control" />
             </div>
-            <span asp-validation-for="Users.Name" class="text-danger"></span>
         </div>
 
         <div class="form-group row">
@@ -29,9 +30,8 @@
                 <label asp-for="Users.Email"></label>
             </div>
             <div class="col-3">
-                <input asp-for="Users.Email" class="form-control" />
+                <input asp-for="Users.Email" readonly class="form-control" />
             </div>
-            <span asp-validation-for="Users.Email" class="text-danger"></span>
         </div>
 
         <div class="form-group row">
@@ -39,19 +39,8 @@
                 <label asp-for="TelephoneNumbers.TelNumber"></label>
             </div>
             <div class="col-3">
-                <input asp-for="TelephoneNumbers.TelNumber" class="form-control" />
+                <input asp-for="TelephoneNumbers.TelNumber" readonly class="form-control" />
             </div>
-            <span asp-validation-for="TelephoneNumbers.TelNumber" class="text-danger"></span>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="TelephoneNumbers.TelNumber"></label>
-            </div>
-            <div class="col-3">
-                <input asp-for="TelephoneNumbers.TelNumber" class="form-control" />
-            </div>
-            <span asp-validation-for="TelephoneNumbers.TelNumber" class="text-danger"></span>
         </div>
 
         <div class="form-group row">
@@ -59,9 +48,8 @@
                 <label asp-for="Addresses.AddressDetail"></label>
             </div>
             <div class="col-3">
-                <input asp-for="Addresses.AddressDetail" class="form-control" />
+                <input asp-for="Addresses.AddressDetail" readonly class="form-control" />
             </div>
-            <span asp-validation-for="Addresses.AddressDetail" class="text-danger"></span>
         </div>
 
         <div class="form-group row">
@@ -69,9 +57,8 @@
                 <label asp-for="Addresses.District"></label>
             </div>
             <div class="col-3">
-                <input asp-for="Addresses.District" class="form-control" />
+                <input asp-for="Addresses.District" readonly class="form-control" />
             </div>
-            <span asp-validation-for="Addresses.District" class="text-danger"></span>
         </div>
 
         <div class="form-group row">
@@ -79,9 +66,8 @@
                 <label asp-for="Addresses.Province"></label>
             </div>
             <div class="col-3">
-                <input asp-for="Addresses.Province" class="form-control" />
+                <input asp-for="Addresses.Province" readonly class="form-control" />
             </div>
-            <span asp-validation-for="Addresses.Province" class="text-danger"></span>
         </div>
 
         <div class="form-group row">
@@ -89,18 +75,19 @@
                 <label asp-for="Addresses.Code"></label>
             </div>
             <div class="col-3">
-                <input asp-for="Addresses.Code" class="form-control" />
+                <input asp-for="Addresses.Code" readonly class="form-control" />
             </div>
-            <span asp-validation-for="Addresses.Code" class="text-danger"></span>
         </div>
 
-        <br />
 
+
+        <br />
         <div class="form-group">
-            <input type="submit" class="btn btn-outline-info" value="Create" />
+            <input type="submit" class="btn btn-outline-info" value="Delete" />
             <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
         </div>
     </form>
+   
 
     @section Scripts{
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

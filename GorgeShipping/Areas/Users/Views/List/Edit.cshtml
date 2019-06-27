@@ -1,18 +1,21 @@
 ﻿@model GorgeShipping.Models.ViewModel.UserListViewModel
 
+
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
+    <title>Edit</title>
 </head>
 <body>
-    <h2 class="text-info">Create Contact</h2>
+    <h2 class="text-info">Edit Contact</h2>
 
     <form method="post" enctype="multipart/form-data">
         <br />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <input hidden asp-for="Users.id" />
 
         <div class="form-group row">
             <div class="col-2">
@@ -97,7 +100,7 @@
         <br />
 
         <div class="form-group">
-            <input type="submit" class="btn btn-outline-info" value="Create" />
+            <input type="submit" class="btn btn-outline-info" value="Update" />
             <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
         </div>
     </form>
@@ -107,3 +110,4 @@
     }
 </body>
 </html>
+

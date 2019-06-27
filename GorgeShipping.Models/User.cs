@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GorgeShipping.Models
 {
@@ -11,5 +12,7 @@ namespace GorgeShipping.Models
 
         public virtual ICollection<Address> Addresses { get; set; }
         public virtual ICollection<TelNo> TelephoneNumbers { get; set; }
+        public virtual TelNo TelDefault => TelephoneNumbers?.Where(t => t.IsDefault).FirstOrDefault();  //many Phone, use default
+
     }
 }

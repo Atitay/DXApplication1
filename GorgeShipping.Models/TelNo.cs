@@ -18,6 +18,7 @@ namespace GorgeShipping.Models
         public virtual User User { get;set;}
 
         public bool IsVerify { get; set; }
+        public bool IsDefault { get; set; }
 
     }
 }

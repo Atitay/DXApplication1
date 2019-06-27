@@ -8,7 +8,7 @@
     <title>Index</title>
 </head>
 <body>
-    <h2>Contact List</h2>
+    <h2 class="text-info">Contact List</h2>
     <br />
     <div class="text-right">
         <a asp-action="Create" class="btn btn-info"> <i class="fas fa-user-plus"></i> &nbsp; New Contact</a>
@@ -39,32 +39,36 @@
                 <th>
                     @Html.DisplayNameFor(m => m.FirstOrDefault().Addresses.FirstOrDefault().Code)
                 </th>
-
+                <th></th>
+                <th></th>
             </tr>
 
-            @foreach (var item in Model)
+            @foreach (var user in Model)
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(m => item.Name)
+                        @Html.DisplayFor(m => user.Name)
                     </td>
                     <td>
-                        @Html.DisplayFor(m => item.Email)
+                        @Html.DisplayFor(m => user.Email)
                     </td>
                     <td>
-                        @Html.DisplayFor(m => item.TelephoneNumbers.FirstOrDefault().TelNumber)
+                        @Html.DisplayFor(m => user.TelDefault.TelNumber)
                     </td>
                     <td>
-                        @Html.DisplayFor(m => item.Addresses.FirstOrDefault().AddressDetail)
+                        @Html.DisplayFor(m => user.Addresses.FirstOrDefault().AddressDetail)
                     </td>
                     <td>
-                        @Html.DisplayFor(m => item.Addresses.FirstOrDefault().District)
+                        @Html.DisplayFor(m => user.Addresses.FirstOrDefault().District)
                     </td>
                     <td>
-                        @Html.DisplayFor(m => item.Addresses.FirstOrDefault().Province)
+                        @Html.DisplayFor(m => user.Addresses.FirstOrDefault().Province)
                     </td>
                     <td>
-                        @Html.DisplayFor(m => item.Addresses.FirstOrDefault().Code)
+                        @Html.DisplayFor(m => user.Addresses.FirstOrDefault().Code)
+                    </td>
+                    <td>
+                        <partial name="_TableButtonPartial" model="user.id" />
                     </td>
                 </tr>
             }
