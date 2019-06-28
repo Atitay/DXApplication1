@@ -39,38 +39,45 @@
                 <th>
                     @Html.DisplayNameFor(m => m.FirstOrDefault().Addresses.FirstOrDefault().Code)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.FirstOrDefault().Addresses.FirstOrDefault().Note)
+                </th>
+
                 <th></th>
                 <th></th>
             </tr>
 
             @foreach (var user in Model)
             {
-                <tr data-href="@Url.Action("Edit/"+user.id)">
-                    <td>
-                        @Html.DisplayFor(m => user.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => user.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => user.TelDefault.TelNumber)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => user.Addresses.FirstOrDefault().AddressDetail)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => user.Addresses.FirstOrDefault().District)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => user.Addresses.FirstOrDefault().Province)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => user.Addresses.FirstOrDefault().Code)
-                    </td>
-                    <td>
-                        <partial name="_TableButtonPartial" model="user.id" />
-                    </td>
-                </tr>
+        <tr data-href="@Url.Action("Edit/"+user.id)">
+            <td>
+                @Html.DisplayFor(m => user.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(m => user.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(m => user.TelDefault.TelNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(m => user.Addresses.FirstOrDefault().AddressDetail)
+            </td>
+            <td>
+                @Html.DisplayFor(m => user.Addresses.FirstOrDefault().District)
+            </td>
+            <td>
+                @Html.DisplayFor(m => user.Addresses.FirstOrDefault().Province)
+            </td>
+            <td>
+                @Html.DisplayFor(m => user.Addresses.FirstOrDefault().Code)
+            </td>
+            <td>
+                @Html.DisplayFor(m => user.Addresses.FirstOrDefault().Note)
+            </td>
+            <td>
+                <partial name="_TableButtonPartial" model="user.id" />
+            </td>
+        </tr>
             }
         </table>
     </div>

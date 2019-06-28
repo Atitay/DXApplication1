@@ -80,8 +80,11 @@ namespace GorgeShipping.Controllers
             }
 
             UserListVM.Users = await _db.Users.SingleOrDefaultAsync(u => u.id == id);
-            UserListVM.TelephoneNumbers = await _db.TelephoneNumbers.SingleOrDefaultAsync(u => u.UserId == id);
+
+            UserListVM.TelephoneNumbers = await _db.TelephoneNumbers.FirstOrDefaultAsync(u => u.UserId == id);
+            
             UserListVM.Addresses = await _db.Addresses.FirstOrDefaultAsync(u => u.UserId == id);
+            
 
             if (UserListVM.Users == null)
             {
@@ -101,23 +104,26 @@ namespace GorgeShipping.Controllers
                 var userFromDb = _db.Users.Where(m => m.id == UserListVM.Users.id).FirstOrDefault();
 
                 UserListVM.Addresses.UserId = UserListVM.Users.id;
+           
                 UserListVM.TelephoneNumbers.UserId = UserListVM.Users.id;
-
+               
                 var TelFromDb = _db.TelephoneNumbers.Where(m => m.UserId == UserListVM.TelephoneNumbers.UserId).FirstOrDefault();
+           
                 var AddrFromDb = _db.Addresses.Where(m => m.UserId == UserListVM.Addresses.UserId).FirstOrDefault();
-
+               
 
                 userFromDb.Name = UserListVM.Users.Name;
-                userFromDb.Email = UserListVM.Users.Email;
-                userFromDb.TelDefault.TelNumber = UserListVM.TelephoneNumbers.TelNumber;
+                userFromDb.Email = UserListVM.Users.Email;                
 
                 TelFromDb.TelNumber = UserListVM.TelephoneNumbers.TelNumber;
+                
 
                 AddrFromDb.AddressDetail = UserListVM.Addresses.AddressDetail;
                 AddrFromDb.District = UserListVM.Addresses.District;
                 AddrFromDb.Province = UserListVM.Addresses.Province;
                 AddrFromDb.Code = UserListVM.Addresses.Code;
-
+                AddrFromDb.Note = UserListVM.Addresses.Note;
+           
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -133,7 +139,7 @@ namespace GorgeShipping.Controllers
             }
 
             UserListVM.Users = await _db.Users.SingleOrDefaultAsync(u => u.id == id);
-            UserListVM.TelephoneNumbers = await _db.TelephoneNumbers.SingleOrDefaultAsync(u => u.UserId == id);
+            UserListVM.TelephoneNumbers = await _db.TelephoneNumbers.FirstOrDefaultAsync(u => u.UserId == id);
             UserListVM.Addresses = await _db.Addresses.FirstOrDefaultAsync(u => u.UserId == id);
 
             if (UserListVM.Users == null)

@@ -8,86 +8,100 @@
     <title>Delete</title>
 </head>
 <body>
-    <h2 class="text-info">Delete Contact</h2>
-    <br />
-    <form method="post">
-        <br />
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group row">
+        <div class="col-3"></div>
 
-        <input hidden asp-for="Users.id" />
+        <div class="col">
+            <h2 class="text-info">Delete Contact</h2>
+            <br />
+            <form method="post">
+                <br />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="Users.Name"></label>
-            </div>
-            <div class="col-3">
-                <input asp-for="Users.Name" readonly class="form-control" />
-            </div>
+                <input hidden asp-for="Users.id" />
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="Users.Name"></label>
+                    </div>
+                    <div class="col">
+                        <input asp-for="Users.Name" readonly class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="Users.Email"></label>
+                    </div>
+                    <div class="col">
+                        <input asp-for="Users.Email" readonly class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="TelephoneNumbers.TelNumber"></label>
+                    </div>
+                    <div class="col">
+                        <input asp-for="TelephoneNumbers.TelNumber" readonly class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="Addresses.AddressDetail"></label>
+                    </div>
+                    <div class="col">
+                        <input asp-for="Addresses.AddressDetail" readonly class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="Addresses.District"></label>
+                    </div>
+                    <div class="col">
+                        <input asp-for="Addresses.District" readonly class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="Addresses.Province"></label>
+                    </div>
+                    <div class="col">
+                        <input asp-for="Addresses.Province" readonly class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="Addresses.Code"></label>
+                    </div>
+                    <div class="col">
+                        <input asp-for="Addresses.Code" readonly class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="Addresses.Note"></label>
+                    </div>
+                    <div class="col">
+                        <input asp-for="Addresses.Note" readonly class="form-control" />
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-group text-center">
+                    <input type="submit" class="btn btn-outline-info" value="Delete" />
+                    <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
+                </div>
+            </form>
+
         </div>
-
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="Users.Email"></label>
-            </div>
-            <div class="col-3">
-                <input asp-for="Users.Email" readonly class="form-control" />
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="TelephoneNumbers.TelNumber"></label>
-            </div>
-            <div class="col-3">
-                <input asp-for="TelephoneNumbers.TelNumber" readonly class="form-control" />
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="Addresses.AddressDetail"></label>
-            </div>
-            <div class="col-3">
-                <input asp-for="Addresses.AddressDetail" readonly class="form-control" />
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="Addresses.District"></label>
-            </div>
-            <div class="col-3">
-                <input asp-for="Addresses.District" readonly class="form-control" />
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="Addresses.Province"></label>
-            </div>
-            <div class="col-3">
-                <input asp-for="Addresses.Province" readonly class="form-control" />
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="Addresses.Code"></label>
-            </div>
-            <div class="col-3">
-                <input asp-for="Addresses.Code" readonly class="form-control" />
-            </div>
-        </div>
-
-
-
-        <br />
-        <div class="form-group">
-            <input type="submit" class="btn btn-outline-info" value="Delete" />
-            <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
-        </div>
-    </form>
-   
+        <div class="col-3"></div>
+    </div>
 
     @section Scripts{
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

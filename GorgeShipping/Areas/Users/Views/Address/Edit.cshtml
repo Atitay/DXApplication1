@@ -1,0 +1,27 @@
+﻿@model GorgeShipping.Models.Address
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    <div class="form-group row">
+        <div class="col-3"></div>
+
+        <div class="col">
+            <h2 class="text-info">Address and Phone Detail</h2>
+            <br />
+            <form method="post">
+                <br />
+                <partial name="_EditPartial"  model="@Model.UserId"/>
+
+            </form>
+
+        </div>
+        <div class="col-3"></div>
+    </div>
+</body>
+</html>

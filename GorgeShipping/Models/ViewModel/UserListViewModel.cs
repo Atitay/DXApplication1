@@ -12,5 +12,6 @@ namespace GorgeShipping.Models.ViewModel
         public TelNo TelephoneNumbers2 { get; set; }
         public Address Addresses { get; set; }
         public Address Addresses2 { get; set; }
+
     }
 }

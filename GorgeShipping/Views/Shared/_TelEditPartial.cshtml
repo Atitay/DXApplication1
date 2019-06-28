@@ -2,15 +2,12 @@
 
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-
-
     <div class="form-group row">
         <div class="col-3">
             <label asp-for="TelNumber"></label>
         </div>
         <div class="col">
-            <input asp-for="TelNumber" readonly class="form-control" />
+            @(Html.DevExtreme().TextBoxFor(m => m.TelNumber).Mask("000-000-0000"))
         </div>
+        <span asp-validation-for="TelNumber" class="text-danger"></span>
     </div>
-
-

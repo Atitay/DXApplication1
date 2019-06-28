@@ -8,46 +8,92 @@
     <title>Detail</title>
 </head>
 <body>
-    <h2 class="text-info">Address Detail</h2>
-    <br />
-    <form method="post">
-        <br />
+    <div class="form-group row">
+        <div class="col-3"></div>
 
-        <div>
-            <h6 class="text-info">First Address</h6>
-            <partial name="_DetailPartial" model="@Model.Addresses" />
+        <div class="col">
+            <h2 class="text-info">Address and Phone Detail</h2>
+            <br />
+            <form method="post">
+                <br />
+
+                <div>
+                    <h6 class="text-info">First Address</h6>
+                    <partial name="_DetailPartial" model="@Model.Addresses" />
+             
+                </div>
+                <br />
+
+                @if (Model.Addresses.id != Model.Addresses2.id)
+                {
+                    <h6 class="text-info">Second Address</h6>
+                    <partial name="_DetailPartial" model="@Model.Addresses2" />
+             
+                }
+
+                <div>
+                    <h6 class="text-info">First Number</h6>
+                    <partial name="_TelPartial" model="@Model.TelephoneNumbers" />
+      
+                </div>
+                <br />
+
+                @if (Model.TelephoneNumbers.id != Model.TelephoneNumbers2.id)
+                {
+                    <h6 class="text-info">Second Number</h6>
+                    <partial name="_TelPartial" model="@Model.TelephoneNumbers2" />
+
+                }
+
+
+                <br />
+                <div class="form-group">
+
+                    @if (Model.Addresses.id != Model.Addresses2.id && Model.TelephoneNumbers.id != Model.TelephoneNumbers2.id)
+                    {
+                        <div class="text-center">
+                            <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
+                        </div>
+                    }
+
+                    else if (Model.Addresses.id != Model.Addresses2.id)
+                    {
+                        <div class="text-center">
+                            <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
+                            <a asp-controller="TelNumber" asp-action="Create" asp-route-id="@Model.TelephoneNumbers.UserId" class="btn btn-outline-info">
+                                <i class="fas fa-phone-alt"></i> &nbsp; New Phone
+                            </a>
+                        </div>
+                    }
+
+                    else if (Model.TelephoneNumbers.id != Model.TelephoneNumbers2.id)
+                    {
+                        <div class="text-center">
+                            <a asp-controller="Address" asp-action="Create" asp-route-id="@Model.Addresses.UserId" class="btn btn-outline-info">
+                                <i class="far fa-address-card"></i> &nbsp; New Address
+                            </a>
+                            <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
+                        </div>
+                    }
+
+                    else
+                    {
+                        <div class="text-center">
+                            <a asp-controller="Address" asp-action="Create" asp-route-id="@Model.Addresses.UserId" class="btn btn-outline-info">
+                                <i class="far fa-address-card"></i> &nbsp; New Address
+                            </a>
+                            <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
+                            <a asp-controller="TelNumber" asp-action="Create" asp-route-id="@Model.TelephoneNumbers.UserId" class="btn btn-outline-info">
+                                <i class="fas fa-phone-alt"></i> &nbsp; New Phone
+                            </a>
+                        </div>
+                    }
+                </div>
+
+            </form>
         </div>
-        <br />
-
-        @if (Model.Addresses.id != Model.Addresses2.id)
-        {
-            <h6 class="text-info">Second Address</h6>
-            <partial name="_DetailPartial" model="@Model.Addresses2" />
-        }
-
-        <div>
-            <h6 class="text-info">First Number</h6>
-            <partial name="_TelPartial" model="@Model.TelephoneNumbers" />
-        </div>
-        <br />
-
-        @if (Model.TelephoneNumbers.id != Model.TelephoneNumbers2.id)
-        {
-            <h6 class="text-info">Second Number</h6>
-            <partial name="_TelPartial" model="@Model.TelephoneNumbers2" />
-        }
-
-
-        <br />
-        <div class="form-group">
-            <a asp-controller="Address" asp-action="Create" asp-route-id="@Model.Users.id" class="btn btn-outline-info"> <i class="far fa-address-card"></i> &nbsp; New Address</a>
-            <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
-            <a asp-controller="TelNumber" asp-action="Create" asp-route-id="@Model.Users.id" class="btn btn-outline-info"> <i class="far fa-telephone"></i> &nbsp; New Phone</a>
-        </div>
-
-    </form>
-
-
+        <div class="col-3"></div>
+    </div>
     @section Scripts{
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     }
