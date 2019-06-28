@@ -14,5 +14,8 @@ namespace GorgeShipping.Models
         public virtual ICollection<TelNo> TelephoneNumbers { get; set; }
         public virtual TelNo TelDefault => TelephoneNumbers?.Where(t => t.IsDefault).FirstOrDefault();  //many Phone, use default
 
+        
+
+
     }
 }

@@ -9,6 +9,8 @@ namespace GorgeShipping.Models.ViewModel
     {
         public User Users { get; set; }
         public TelNo TelephoneNumbers { get; set; }
+        public TelNo TelephoneNumbers2 { get; set; }
         public Address Addresses { get; set; }
+        public Address Addresses2 { get; set; }
     }
 }

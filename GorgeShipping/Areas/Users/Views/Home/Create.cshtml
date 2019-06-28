@@ -1,4 +1,4 @@
-﻿@model GorgeShipping.Models.User
+﻿@model GorgeShipping.Models.ViewModel.UserListViewModel
 
 <!DOCTYPE html>
 
@@ -8,7 +8,7 @@
     <title>Create</title>
 </head>
 <body>
-    <h2 class="text-info">Create Contact</h2>
+    <h2 class="text-info">New Contact</h2>
 
     <form method="post" enctype="multipart/form-data">
         <br />
@@ -16,28 +16,82 @@
 
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="Name"></label>
+                <label asp-for="Users.Name"></label>
             </div>
             <div class="col-3">
-                <input asp-for="Name" class="form-control" />
+                <input asp-for="Users.Name" class="form-control" />
             </div>
-            <span asp-validation-for="Name" class="text-danger"></span>
+            <span asp-validation-for="Users.Name" class="text-danger"></span>
         </div>
 
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="Email"></label>
+                <label asp-for="Users.Email"></label>
             </div>
             <div class="col-3">
-                <input asp-for="Email" class="form-control" />
+                <input asp-for="Users.Email" class="form-control" />
             </div>
-            <span asp-validation-for="Email" class="text-danger"></span>
+            <span asp-validation-for="Users.Email" class="text-danger"></span>
         </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="TelephoneNumbers.TelNumber"></label>
+            </div>
+            <div class="col-3">
+                @(Html.DevExtreme().TextBoxFor(m => m.TelephoneNumbers.TelNumber).Mask("000-000-0000"))
+            </div>
+            <span asp-validation-for="TelephoneNumbers.TelNumber" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Addresses.AddressDetail"></label>
+            </div>
+            <div class="col-3">
+                <input asp-for="Addresses.AddressDetail" class="form-control" />
+            </div>
+            <span asp-validation-for="Addresses.AddressDetail" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Addresses.District"></label>
+            </div>
+            <div class="col-3">
+                <input asp-for="Addresses.District" class="form-control" />
+            </div>
+            <span asp-validation-for="Addresses.District" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Addresses.Province"></label>
+            </div>
+            <div class="col-3">
+                <input asp-for="Addresses.Province" class="form-control" />
+            </div>
+            <span asp-validation-for="Addresses.Province" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Addresses.Code"></label>
+            </div>
+            <div class="col-3">
+                @(Html.DevExtreme().TextBoxFor(m => m.Addresses.Code).Mask("00000"))
+            </div>
+            <span asp-validation-for="Addresses.Code" class="text-danger"></span>
+        </div>
+
+        <br />
 
         <div class="form-group">
             <input type="submit" class="btn btn-outline-info" value="Create" />
             <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
         </div>
+
     </form>
 
     @section Scripts{

@@ -42,20 +42,20 @@
                 <label asp-for="TelephoneNumbers.TelNumber"></label>
             </div>
             <div class="col-3">
-                <input asp-for="TelephoneNumbers.TelNumber" class="form-control" />
+                @(Html.DevExtreme().TextBoxFor(m => m.TelephoneNumbers.TelNumber).Mask("000-000-0000"))
             </div>
             <span asp-validation-for="TelephoneNumbers.TelNumber" class="text-danger"></span>
         </div>
 
-        <div class="form-group row">
+        @*<div class="form-group row">
             <div class="col-2">
                 <label asp-for="TelephoneNumbers.TelNumber"></label>
             </div>
             <div class="col-3">
-                <input asp-for="TelephoneNumbers.TelNumber" class="form-control" />
+              <input asp-for="TelephoneNumbers.TelNumber" class="form-control" />
             </div>
             <span asp-validation-for="TelephoneNumbers.TelNumber" class="text-danger"></span>
-        </div>
+        </div>*@
 
         <div class="form-group row">
             <div class="col-2">

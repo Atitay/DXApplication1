@@ -1,0 +1,55 @@
+﻿@model GorgeShipping.Models.ViewModel.UserListViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detail</title>
+</head>
+<body>
+    <h2 class="text-info">Address Detail</h2>
+    <br />
+    <form method="post">
+        <br />
+
+        <div>
+            <h6 class="text-info">First Address</h6>
+            <partial name="_DetailPartial" model="@Model.Addresses" />
+        </div>
+        <br />
+
+        @if (Model.Addresses.id != Model.Addresses2.id)
+        {
+            <h6 class="text-info">Second Address</h6>
+            <partial name="_DetailPartial" model="@Model.Addresses2" />
+        }
+
+        <div>
+            <h6 class="text-info">First Number</h6>
+            <partial name="_TelPartial" model="@Model.TelephoneNumbers" />
+        </div>
+        <br />
+
+        @if (Model.TelephoneNumbers.id != Model.TelephoneNumbers2.id)
+        {
+            <h6 class="text-info">Second Number</h6>
+            <partial name="_TelPartial" model="@Model.TelephoneNumbers2" />
+        }
+
+
+        <br />
+        <div class="form-group">
+            <a asp-controller="Address" asp-action="Create" asp-route-id="@Model.Users.id" class="btn btn-outline-info"> <i class="far fa-address-card"></i> &nbsp; New Address</a>
+            <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
+            <a asp-controller="TelNumber" asp-action="Create" asp-route-id="@Model.Users.id" class="btn btn-outline-info"> <i class="far fa-telephone"></i> &nbsp; New Phone</a>
+        </div>
+
+    </form>
+
+
+    @section Scripts{
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>
+</html>

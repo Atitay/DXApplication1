@@ -26,6 +26,7 @@ namespace GorgeShipping.Controllers
             {
                 Users = new Models.User(),
                 Addresses = new Models.Address(),
+                Addresses2 = new Models.Address(),
                 TelephoneNumbers = new Models.TelNo()
             };
         }
@@ -80,7 +81,7 @@ namespace GorgeShipping.Controllers
 
             UserListVM.Users = await _db.Users.SingleOrDefaultAsync(u => u.id == id);
             UserListVM.TelephoneNumbers = await _db.TelephoneNumbers.SingleOrDefaultAsync(u => u.UserId == id);
-            UserListVM.Addresses = await _db.Addresses.SingleOrDefaultAsync(u => u.UserId == id);
+            UserListVM.Addresses = await _db.Addresses.FirstOrDefaultAsync(u => u.UserId == id);
 
             if (UserListVM.Users == null)
             {
@@ -133,7 +134,7 @@ namespace GorgeShipping.Controllers
 
             UserListVM.Users = await _db.Users.SingleOrDefaultAsync(u => u.id == id);
             UserListVM.TelephoneNumbers = await _db.TelephoneNumbers.SingleOrDefaultAsync(u => u.UserId == id);
-            UserListVM.Addresses = await _db.Addresses.SingleOrDefaultAsync(u => u.UserId == id);
+            UserListVM.Addresses = await _db.Addresses.FirstOrDefaultAsync(u => u.UserId == id);
 
             if (UserListVM.Users == null)
             {
