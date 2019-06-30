@@ -45,18 +45,16 @@ namespace GorgeShipping.Areas.Users.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreatePost(Guid id)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(UserListVM);
+                UserListVM.TelephoneNumbers.UserId = id;
+                _db.TelephoneNumbers.Add(UserListVM.TelephoneNumbers);
+
+                await _db.SaveChangesAsync();
+
+                return RedirectToAction("Index", "Home");
             }
-
-            UserListVM.TelephoneNumbers.UserId = id;
-            _db.TelephoneNumbers.Add(UserListVM.TelephoneNumbers);
-
-            await _db.SaveChangesAsync();
-
-            return RedirectToAction("Index","Home");
-
+            return View(UserListVM);
         }
 
     }

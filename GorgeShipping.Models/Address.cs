@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
@@ -14,6 +15,7 @@ namespace GorgeShipping.Models
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
 
+        [Display(Name = "Address")]
         public string AddressDetail { get; set; }
         public string District { get; set; }
         public string Province { get; set; }

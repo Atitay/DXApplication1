@@ -8,107 +8,112 @@
     <title>Create</title>
 </head>
 <body>
-    <h2 class="text-info">Create Contact</h2>
 
-    <form method="post" enctype="multipart/form-data">
-        <br />
+
+    <form method="post" asp-action="Create">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <h2 class="text-info text-center">New Contact</h2>
+        <br /><br />
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5">
+                <b>Personal Information</b>
+                <hr width=50% size=5 align=left>
+                <div style="background-color:lavenderblush;">
+                    <div class="form-group rounded">
+                        <div class="col">
+                            <label asp-for="Users.Name"></label>
+                        </div>
+                        <div class="col">
+                            @(Html.DevExtreme().TextBoxFor(m => m.Users.Name).Width(250).Height(30))
+                        </div>
+                        <span asp-validation-for="Users.Name" class="text-danger"></span>
+                    </div>
 
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="Users.Name"></label>
-            </div>
-            <div class="col-3">
-                <input asp-for="Users.Name" class="form-control" />
-            </div>
-            <span asp-validation-for="Users.Name" class="text-danger"></span>
-        </div>
+                    <div class="form-group">
+                        <div class="col">
+                            <label asp-for="Users.Email"></label>
+                        </div>
+                        <div class="col">
+                            @(Html.DevExtreme().TextBoxFor(m => m.Users.Email).Width(250).Height(30))
+                        </div>
+                        <span asp-validation-for="Users.Email" class="text-danger"></span>
+                    </div>
 
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="Users.Email"></label>
+                    <div class="form-group">
+                        <div class="col ">
+                            <label asp-for="TelephoneNumbers.TelNumber"></label>
+                        </div>
+                        <div class="col ">
+                            @(Html.DevExtreme().TextBoxFor(m => m.TelephoneNumbers.TelNumber).Mask("000-000-0000").Width(200).Height(30))
+                        </div>
+                        <span asp-validation-for="TelephoneNumbers.TelNumber" class="text-danger"></span>
+                    </div>
+                    <br />
+                </div>
             </div>
-            <div class="col-3">
-                <input asp-for="Users.Email" class="form-control" />
-            </div>
-            <span asp-validation-for="Users.Email" class="text-danger"></span>
-        </div>
+            <div class="col-sm-5">
+                <b>Address Information</b>
+                <hr width=50% size=5 align=left>
+                <div style="background-color:lavenderblush;">
+                    <div class="form-group rounded">
+                        <div class="col">
+                            <label asp-for="Addresses.AddressDetail"></label>
+                        </div>
+                        <div class="col">
+                            @(Html.DevExtreme().TextAreaFor(m => m.Addresses.AddressDetail).Height(80))
+                        </div>
+                        <span asp-validation-for="Addresses.AddressDetail" class="text-danger"></span>
+                    </div>
+                    <div class="col row">
+                        <div class="form-group">
+                            <div class="col">
+                                <label asp-for="Addresses.District"></label>
+                            </div>
+                            <div class="col">
+                                @(Html.DevExtreme().TextBoxFor(m => m.Addresses.District).Width(170).Height(30))
+                            </div>
+                            <span asp-validation-for="Addresses.District" class="text-danger"></span>
+                        </div>
+                        &nbsp; &nbsp;
+                        <div class="form-group">
+                            <div class="col">
+                                <label asp-for="Addresses.Province"></label>
+                            </div>
+                            <div class="col">
+                                @(Html.DevExtreme().TextBoxFor(m => m.Addresses.Province).Width(170).Height(30))
+                            </div>
+                            <span asp-validation-for="Addresses.Province" class="text-danger"></span>
+                        </div>
+                    </div>
 
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="TelephoneNumbers.TelNumber"></label>
-            </div>
-            <div class="col-3">
-                @(Html.DevExtreme().TextBoxFor(m => m.TelephoneNumbers.TelNumber).Mask("000-000-0000"))
-            </div>
-            <span asp-validation-for="TelephoneNumbers.TelNumber" class="text-danger"></span>
-        </div>
+                    <div class="form-group">
+                        <div class="col">
+                            <label asp-for="Addresses.Code"></label>
+                        </div>
+                        <div class="col">
+                            @(Html.DevExtreme().TextBoxFor(m => m.Addresses.Code).Mask("00000").Width(170).Height(30))
+                        </div>
+                        <span asp-validation-for="Addresses.Code" class="text-danger"></span>
+                    </div>
 
-        @*<div class="form-group row">
-            <div class="col-2">
-                <label asp-for="TelephoneNumbers.TelNumber"></label>
-            </div>
-            <div class="col-3">
-                <input asp-for="TelephoneNumbers.TelNumber" class="form-control" />
-            </div>
-            <span asp-validation-for="TelephoneNumbers.TelNumber" class="text-danger"></span>
-        </div>*@
+                    <div class="form-group">
+                        <div class="col">
+                            <label asp-for="Addresses.Note"></label>
+                        </div>
+                        <div class="col">
+                            @(Html.DevExtreme().TextAreaFor(m => m.Addresses.Note).Height(40))
+                        </div><br />
+                        <span asp-validation-for="Addresses.Note" class="text-danger"></span>
+                    </div>
+                </div>
 
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="Addresses.AddressDetail"></label>
+                <div class="form-group text-right">
+                    <a asp-action="Index" class="btn btn-outline-success">Back</a>
+                    <input type="submit" class="btn btn-outline-info" value="Create" />
+                </div>
+                <div class="col-sm-1"></div>
             </div>
-            <div class="col-3">
-                <input asp-for="Addresses.AddressDetail" class="form-control" />
-            </div>
-            <span asp-validation-for="Addresses.AddressDetail" class="text-danger"></span>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="Addresses.District"></label>
-            </div>
-            <div class="col-3">
-                <input asp-for="Addresses.District" class="form-control" />
-            </div>
-            <span asp-validation-for="Addresses.District" class="text-danger"></span>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="Addresses.Province"></label>
-            </div>
-            <div class="col-3">
-                <input asp-for="Addresses.Province" class="form-control" />
-            </div>
-            <span asp-validation-for="Addresses.Province" class="text-danger"></span>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="Addresses.Code"></label>
-            </div>
-            <div class="col-3">
-                @(Html.DevExtreme().TextBoxFor(m => m.Addresses.Code).Mask("00000"))
-            </div>
-            <span asp-validation-for="Addresses.Code" class="text-danger"></span>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="Addresses.Note"></label>
-            </div>
-            <div class="col-3">
-                <input asp-for="Addresses.Note" class="form-control" />
-            </div>
-            <span asp-validation-for="Addresses.Note" class="text-danger"></span>
-        </div>
-
-        <br />
-
-        <div class="form-group">
-            <input type="submit" class="btn btn-outline-info" value="Create" />
-            <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
         </div>
     </form>
 

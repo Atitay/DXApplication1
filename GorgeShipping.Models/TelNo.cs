@@ -10,7 +10,7 @@ namespace GorgeShipping.Models
     {
         public Guid id { get; set; }
       
-        [Display(Name = "Telephone Number")]
+        [Display(Name = "Phone Number")]
         public string TelNumber { get; set; }
 
         public Guid UserId { get; set; }

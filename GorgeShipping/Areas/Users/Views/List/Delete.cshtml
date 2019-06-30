@@ -8,103 +8,95 @@
     <title>Delete</title>
 </head>
 <body>
-    <div class="form-group row">
-        <div class="col-3"></div>
 
-        <div class="col">
-            <h2 class="text-info">Delete Contact</h2>
-            <br />
-            <form method="post">
+    <form method="post" asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <h2 class="text-info text-center">Delete Contact</h2>
+        <input hidden asp-for="Users.id" />
+        <br /><br />
+
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5">
+                <b>Personal Information</b>
+                <hr width=50% size=5 align=left>
+                <div style="background-color:lavenderblush;">
+                    <div class="form-group rounded">
+                        <div class="col">
+                            <label asp-for="Users.Name"></label>
+                        </div>
+                        <div class="col">
+                            @(Html.DevExtreme().TextBoxFor(m => m.Users.Name).Width(250).Height(30).ReadOnly(true))
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col">
+                            <label asp-for="Users.Email"></label>
+                        </div>
+                        <div class="col">
+                            @(Html.DevExtreme().TextBoxFor(m => m.Users.Email).Width(250).Height(30).ReadOnly(true))
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col">
+                            <h6 class="text-info">First Number</h6>
+                            <partial name="_TelPartial" model="@Model.TelephoneNumbers" />
+                        </div>
+                    </div>
+                    <br />
+
+                    @if (Model.TelephoneNumbers.id != Model.TelephoneNumbers2.id)
+                    {
+                        <div class="form-group">
+                            <div class="col">
+                                <h6 class="text-info">Second Number</h6>
+                                <partial name="_TelPartial" model="@Model.TelephoneNumbers2" />
+                            </div>
+                        </div>
+                    }
+                    <br />
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                <b>Address Information</b>
+                <hr width=50% size=5 align=left>
+                <div style="background-color:lavenderblush;">
+
+                    <div class="form-group">
+                        <div class="col">
+                            <h6 class="text-info">First Address</h6>
+                            <partial name="_DetailPartial" model="@Model.Addresses" />
+                        </div>
+                    </div>
+
+                    <br />
+
+                    @if (Model.Addresses.id != Model.Addresses2.id)
+                    {
+                        <div class="form-group">
+                            <div class="col">
+                                <h6 class="text-info">Second Address</h6>
+                                <partial name="_DetailPartial" model="@Model.Addresses2" />
+                            </div>
+                        </div>
+                    }
+                    <br />
+
+                </div>
                 <br />
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                <input hidden asp-for="Users.id" />
-
-                <div class="form-group row">
-                    <div class="col-3">
-                        <label asp-for="Users.Name"></label>
-                    </div>
-                    <div class="col">
-                        <input asp-for="Users.Name" readonly class="form-control" />
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <div class="col-3">
-                        <label asp-for="Users.Email"></label>
-                    </div>
-                    <div class="col">
-                        <input asp-for="Users.Email" readonly class="form-control" />
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <div class="col-3">
-                        <label asp-for="TelephoneNumbers.TelNumber"></label>
-                    </div>
-                    <div class="col">
-                        <input asp-for="TelephoneNumbers.TelNumber" readonly class="form-control" />
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <div class="col-3">
-                        <label asp-for="Addresses.AddressDetail"></label>
-                    </div>
-                    <div class="col">
-                        <input asp-for="Addresses.AddressDetail" readonly class="form-control" />
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <div class="col-3">
-                        <label asp-for="Addresses.District"></label>
-                    </div>
-                    <div class="col">
-                        <input asp-for="Addresses.District" readonly class="form-control" />
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <div class="col-3">
-                        <label asp-for="Addresses.Province"></label>
-                    </div>
-                    <div class="col">
-                        <input asp-for="Addresses.Province" readonly class="form-control" />
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <div class="col-3">
-                        <label asp-for="Addresses.Code"></label>
-                    </div>
-                    <div class="col">
-                        <input asp-for="Addresses.Code" readonly class="form-control" />
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <div class="col-3">
-                        <label asp-for="Addresses.Note"></label>
-                    </div>
-                    <div class="col">
-                        <input asp-for="Addresses.Note" readonly class="form-control" />
-                    </div>
-                </div>
-
-                <br />
-                <div class="form-group text-center">
-                    <input type="submit" class="btn btn-outline-info" value="Delete" />
+                <div class="form-group text-right">
                     <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
+                    <input type="submit" class="btn btn-outline-info" value="Delete" />
                 </div>
-            </form>
+
+                <div class="col-sm-1"></div>
+            </div>
 
         </div>
-        <div class="col-3"></div>
-    </div>
-
-    @section Scripts{
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
+    </form>
 </body>
 </html>

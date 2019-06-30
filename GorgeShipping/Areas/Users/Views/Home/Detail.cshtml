@@ -8,94 +8,132 @@
     <title>Detail</title>
 </head>
 <body>
-    <div class="form-group row">
-        <div class="col-3"></div>
+    <form method="post" asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <h2 class="text-info text-center">Contact Detail</h2>
+        <br /><br />
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5">
+                <b>Personal Information</b>
+                <hr width=50% size=5 align=left>
+                <div style="background-color:lavenderblush;">
+                    <div class="form-group rounded">
+                        <div class="col">
+                            <label asp-for="Users.Name"></label>
+                        </div>
+                        <div class="col">
+                            @(Html.DevExtreme().TextBoxFor(m => m.Users.Name).Width(250).Height(30))
+                        </div>
+                        <span asp-validation-for="Users.Name" class="text-danger"></span>
+                    </div>
 
-        <div class="col">
-            <h2 class="text-info">Address and Phone Detail</h2>
-            <br />
-            <form method="post">
-                <br />
+                    <div class="form-group">
+                        <div class="col">
+                            <label asp-for="Users.Email"></label>
+                        </div>
+                        <div class="col">
+                            @(Html.DevExtreme().TextBoxFor(m => m.Users.Email).Width(250).Height(30))
+                        </div>
+                        <span asp-validation-for="Users.Email" class="text-danger"></span>
+                    </div>
 
-                <div>
-                    <h6 class="text-info">First Address</h6>
-                    <partial name="_DetailPartial" model="@Model.Addresses" />
-             
+                    <div class="form-group">
+                        <div class="col">
+                            <h6 class="text-info">First Number</h6>
+                            <partial name="_TelPartial" model="@Model.TelephoneNumbers" />
+                        </div>
+                    </div>
+                    <br />
+
+                    @if (Model.TelephoneNumbers.id != Model.TelephoneNumbers2.id)
+                    {
+                        <div class="form-group">
+                            <div class="col">
+                                <h6 class="text-info">Second Number</h6>
+                                <partial name="_TelPartial" model="@Model.TelephoneNumbers2" />
+                            </div>
+                        </div>
+                    }
+                    <br />
                 </div>
-                <br />
+            </div>
 
-                @if (Model.Addresses.id != Model.Addresses2.id)
-                {
-                    <h6 class="text-info">Second Address</h6>
-                    <partial name="_DetailPartial" model="@Model.Addresses2" />
-             
-                }
+            <div class="col-sm-5">
+                <b>Address Information</b>
+                <hr width=50% size=5 align=left>
+                <div style="background-color:lavenderblush;">
 
-                <div>
-                    <h6 class="text-info">First Number</h6>
-                    <partial name="_TelPartial" model="@Model.TelephoneNumbers" />
-      
+                    <div class="form-group">
+                        <div class="col">
+                            <h6 class="text-info">First Address</h6>
+                            <partial name="_DetailPartial" model="@Model.Addresses" />
+                        </div>
+                    </div>
+
+                    <br />
+
+                    @if (Model.Addresses.id != Model.Addresses2.id)
+                    {
+                    <div class="form-group">
+                        <div class="col">
+                            <h6 class="text-info">Second Address</h6>
+                            <partial name="_DetailPartial" model="@Model.Addresses2" />
+                        </div>
+                    </div>
+                    }
+                    <br />
+
                 </div>
-                <br />
-
-                @if (Model.TelephoneNumbers.id != Model.TelephoneNumbers2.id)
-                {
-                    <h6 class="text-info">Second Number</h6>
-                    <partial name="_TelPartial" model="@Model.TelephoneNumbers2" />
-
-                }
-
-
                 <br />
                 <div class="form-group">
 
                     @if (Model.Addresses.id != Model.Addresses2.id && Model.TelephoneNumbers.id != Model.TelephoneNumbers2.id)
                     {
-                        <div class="text-center">
-                            <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
-                        </div>
+                    <div class="text-center">
+                        <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
+                    </div>
                     }
 
                     else if (Model.Addresses.id != Model.Addresses2.id)
                     {
-                        <div class="text-center">
-                            <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
-                            <a asp-controller="TelNumber" asp-action="Create" asp-route-id="@Model.TelephoneNumbers.UserId" class="btn btn-outline-info">
-                                <i class="fas fa-phone-alt"></i> &nbsp; New Phone
-                            </a>
-                        </div>
+                    <div class="text-center">
+                        <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
+                        <a asp-controller="TelNumber" asp-action="Create" asp-route-id="@Model.TelephoneNumbers.UserId" class="btn btn-outline-info">
+                            <i class="fas fa-phone-alt"></i> &nbsp; New Phone
+                        </a>
+                    </div>
                     }
 
                     else if (Model.TelephoneNumbers.id != Model.TelephoneNumbers2.id)
                     {
-                        <div class="text-center">
-                            <a asp-controller="Address" asp-action="Create" asp-route-id="@Model.Addresses.UserId" class="btn btn-outline-info">
-                                <i class="far fa-address-card"></i> &nbsp; New Address
-                            </a>
-                            <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
-                        </div>
+                    <div class="text-center">
+                        <a asp-controller="Address" asp-action="Create" asp-route-id="@Model.Addresses.UserId" class="btn btn-outline-info">
+                            <i class="far fa-address-card"></i> &nbsp; New Address
+                        </a>
+                        <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
+                    </div>
                     }
 
                     else
                     {
-                        <div class="text-center">
-                            <a asp-controller="Address" asp-action="Create" asp-route-id="@Model.Addresses.UserId" class="btn btn-outline-info">
-                                <i class="far fa-address-card"></i> &nbsp; New Address
-                            </a>
-                            <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
-                            <a asp-controller="TelNumber" asp-action="Create" asp-route-id="@Model.TelephoneNumbers.UserId" class="btn btn-outline-info">
-                                <i class="fas fa-phone-alt"></i> &nbsp; New Phone
-                            </a>
-                        </div>
+                    <div class="text-center">
+                        <a asp-controller="Address" asp-action="Create" asp-route-id="@Model.Addresses.UserId" class="btn btn-outline-info">
+                            <i class="far fa-address-card"></i> &nbsp; New Address
+                        </a>
+                        <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
+                        <a asp-controller="TelNumber" asp-action="Create" asp-route-id="@Model.TelephoneNumbers.UserId" class="btn btn-outline-info">
+                            <i class="fas fa-phone-alt"></i> &nbsp; New Phone
+                        </a>
+                    </div>
                     }
                 </div>
 
-            </form>
+                <div class="col-sm-1"></div>
+            </div>
+
         </div>
-        <div class="col-3"></div>
-    </div>
-    @section Scripts{
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
+    </form>
+
 </body>
 </html>

@@ -1,49 +1,51 @@
 ﻿@model GorgeShipping.Models.Address
 
-<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-    <div class="form-group row">
-        <div class="col-3">
-            <label asp-for="AddressDetail"></label>
+<div>
+    <div class="form-group rounded">
+        <div class="col">
+            @*<label asp-for="AddressDetail"></label>*@
         </div>
         <div class="col">
-            <input asp-for="AddressDetail" readonly class="form-control" />
+            @(Html.DevExtreme().TextAreaFor(m => m.AddressDetail).Height(80).ReadOnly(true))
         </div>
     </div>
 
-    <div class="form-group row">
-        <div class="col-3">
-            <label asp-for="District"></label>
+    <div class="col row">
+        <div class="form-group">
+            <div class="col">
+                <label asp-for="District"></label>
+            </div>
+            <div class="col">
+                @(Html.DevExtreme().TextBoxFor(m => m.District).Width(200).Height(30).ReadOnly(true))
+            </div>
         </div>
-        <div class="col">
-            <input asp-for="District" readonly class="form-control" />
+        &nbsp; &nbsp;
+        <div class="form-group">
+            <div class="col">
+                <label asp-for="Province"></label>
+            </div>
+            <div class="col">
+                @(Html.DevExtreme().TextBoxFor(m => m.Province).Width(200).Height(30).ReadOnly(true))
+            </div>
         </div>
     </div>
 
-    <div class="form-group row">
-        <div class="col-3">
-            <label asp-for="Province"></label>
-        </div>
+    <div class="form-group">
         <div class="col">
-            <input asp-for="Province" readonly class="form-control" />
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <div class="col-3">
             <label asp-for="Code"></label>
         </div>
         <div class="col">
-            <input asp-for="Code" readonly class="form-control" />
+            @(Html.DevExtreme().TextBoxFor(m => m.Code).Mask("00000").Width(200).Height(30).ReadOnly(true))
         </div>
     </div>
 
-    <div class="form-group row">
-        <div class="col-3">
+    <div class="form-group">
+        <div class="col">
             <label asp-for="Note"></label>
         </div>
         <div class="col">
-            <input asp-for="Note" readonly class="form-control" />
-        </div>
+            @(Html.DevExtreme().TextAreaFor(m => m.Note).Height(50).ReadOnly(true))
+        </div><br />
     </div>
 
+</div>

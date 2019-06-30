@@ -10,64 +10,70 @@
     <title>Index</title>
 </head>
 <body>
-    <h2 class="text-info">Gorge Shipping</h2>
-    <br />
-
-    <div class="row" style="padding-top:10px">
-      
-        <div class="col-9">
-
-            Find by Phone Number:
+    <div class="form-group row">
+        <div class="col-3"></div>
+        <div class="col">
             <br />
-            <div class="active-pink-3 active-pink-4 mb-4">
-                <input class="form-control mr-sm-2" type="text" id="myInput" onkeyup="SearchFunction()" placeholder="Search for Phone Number.." aria-label="Search" />
+            <h2 class="text-info text-center">Gorge Shipping</h2>
+
+            <div class="row" style="padding-top:10px">
+
+                <div class="col">
+
+                    <div class="dx-field-label">Find by Phone Number :</div>
+                    <br />
+                    <div class="active-3 mb-4">
+                        <input class="form-control mr-sm-2" type="text" id="myInput"
+                               onkeyup="SearchFunction()" placeholder="Search Phone Number" aria-label="Search" />
+                    </div>
+                    <a asp-action="Index">Back to full List</a>
+
+                </div>
+
             </div>
-          
-            <a asp-action="Index">Back to full List</a>
+
+            <br />
+
+            <div class="text-justify">
+                <a asp-action="Create" class="btn btn-outline-info"> <i class="fas fa-user-plus"></i> &nbsp;New!</a>
+            </div>
+
+            <br /> <br />
+            <div class="col">
+                <table id="myTable" class="table text-center  table-bordered table-sm">
+                    <tr class="table-info table-striped text-center">
+                        <th>
+                            @Html.DisplayNameFor(m => m.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.FirstOrDefault().TelephoneNumbers.FirstOrDefault().TelNumber)
+                        </th>
+
+                    </tr>
+
+
+                    @foreach (var user in Model)
+                    {
+                        <tr data-href="@Url.Action("Detail/"+user.id)">
+
+                            <td>
+                                @Html.DisplayFor(m => user.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => user.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => user.TelDefault.TelNumber)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
         </div>
-    </div>
-    <br />
-    <div class="text-justify">
-        <a asp-action="Create" class="btn btn-outline-info"> <i class="fas fa-user-plus"></i> &nbsp; New Contact</a>
-    </div>
-
-    <br /> <br />
-    <div class="col-9">
-        <table id="myTable" class="table table-striped border">
-            <tr class="table-striped">
-                <th>
-                    @Html.DisplayNameFor(m => m.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(m => m.Email)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(m => m.FirstOrDefault().TelephoneNumbers.FirstOrDefault().TelNumber).
-                </th>
-
-            </tr>
-
-            @foreach (var user in Model)
-            {
-                <tr data-href="@Url.Action("Detail/"+user.id)">
-                    <td>
-                        @Html.DisplayFor(m => user.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => user.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => user.TelDefault.TelNumber)
-                    </td>
-                    @*<td>
-                        <a type="button" class="btn btn-primary" asp-controller="TelNumber" asp-action="Create" asp-route-id="@user.id">
-                            <i class="fas fa-plus"></i>
-                        </a>
-                    </td>*@
-
-                </tr>
-            }
-        </table>
+        <div class="col-3"></div>
     </div>
 
     <script>
@@ -88,17 +94,16 @@
                     txtValue = td.textContent || td.innerText;
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
                         tr[i].style.display = "";
-                    } else {
+                    }
+                    else {
                         tr[i].style.display = "none";
                     }
                 }
             }
         }
     </script>
-   
-    <script>
-    @*Clickable Table*@
 
+    <script>
         document.addEventListener("DOMContentLoaded", () => {
             const rows = document.querySelectorAll("tr[data-href]");
 
@@ -110,13 +115,10 @@
         });
     </script>
 
-    @* Cursor mouse *@
     <style>
         tr[data-href] {
             cursor: pointer;
         }
     </style>
-
-
 </body>
 </html>

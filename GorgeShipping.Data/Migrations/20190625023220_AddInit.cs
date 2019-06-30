@@ -12,8 +12,8 @@ namespace GorgeShipping.Data.Migrations
                 columns: table => new
                 {
                     id = table.Column<Guid>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -26,11 +26,11 @@ namespace GorgeShipping.Data.Migrations
                 {
                     id = table.Column<Guid>(nullable: false),
                     UserId = table.Column<Guid>(nullable: false),
-                    AddressDetail = table.Column<string>(nullable: true),
-                    District = table.Column<string>(nullable: true),
-                    Province = table.Column<string>(nullable: true),
+                    AddressDetail = table.Column<string>(nullable: false),
+                    District = table.Column<string>(nullable: false),
+                    Province = table.Column<string>(nullable: false),
                     Code = table.Column<int>(nullable: false),
-                    TelNo = table.Column<string>(nullable: true)
+                    TelNo = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -48,7 +48,7 @@ namespace GorgeShipping.Data.Migrations
                 columns: table => new
                 {
                     id = table.Column<Guid>(nullable: false),
-                    TelNumber = table.Column<string>(nullable: true),
+                    TelNumber = table.Column<string>(nullable: false),
                     UserId = table.Column<Guid>(nullable: false),
                     IsVerify = table.Column<bool>(nullable: false)
                 },
