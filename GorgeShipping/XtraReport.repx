@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="19.1.3.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="XtraReport" Landscape="true" Margins="163, 140, 129, 176" PaperKind="A4" PageWidth="1169" PageHeight="827" Version="19.1" EventsInfo="|XtraReport,BeforePrint,XtraReport_BeforePrint" DataMember="Addresses" DataSource="#Ref-0" Font="Arial, 9.75pt">
+  <Parameters>
+    <Item1 Ref="3" Description="Parameter1" Name="pName" />
+    <Item2 Ref="4" Description="Parameter1" Name="pAddr" />
+    <Item3 Ref="5" Description="Parameter1" Name="pDistrict" />
+    <Item4 Ref="6" Description="Parameter1" Name="pProvince" />
+    <Item5 Ref="7" Description="Parameter1" Name="pCode" />
+    <Item6 Ref="8" Description="Parameter1" Name="pPhone" />
+  </Parameters>
+  <Bands>
+    <Item1 Ref="9" ControlType="TopMarginBand" Name="TopMargin" HeightF="129" />
+    <Item2 Ref="10" ControlType="BottomMarginBand" Name="BottomMargin" HeightF="176" />
+    <Item3 Ref="11" ControlType="DetailBand" Name="Detail" HeightF="318.0953" />
+    <Item4 Ref="12" ControlType="PageHeaderBand" Name="PageHeader" HeightF="220.333374">
+      <Controls>
+        <Item1 Ref="13" ControlType="XRLabel" Name="label7" Multiline="true" Text="label7" SizeF="100,23" LocationFloat="34.6190834, 158.129654" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="14" Expression="?pPhone" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item1>
+        <Item2 Ref="15" ControlType="XRLabel" Name="label6" Multiline="true" Text="label6" SizeF="100,23" LocationFloat="34.6190834, 135.129639" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="16" Expression="?pCode" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item2>
+        <Item3 Ref="17" ControlType="XRLabel" Name="label5" Multiline="true" Text="label5" SizeF="100,23" LocationFloat="134.61908, 112.129639" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="18" Expression="?pProvince" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item3>
+        <Item4 Ref="19" ControlType="XRLabel" Name="label4" Multiline="true" Text="label4" SizeF="100,23" LocationFloat="34.6190834, 112.129639" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="20" Expression="?pDistrict" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item4>
+        <Item5 Ref="21" ControlType="XRLabel" Name="label3" Multiline="true" Text="label3" SizeF="100,23" LocationFloat="34.6190834, 66.12964" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="22" Expression="?pName" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item5>
+        <Item6 Ref="23" ControlType="XRLabel" Name="label1" Multiline="true" Text="label1" SizeF="200,23" LocationFloat="34.6190834, 89.12964" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="24" Expression="?pAddr" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item6>
+        <Item7 Ref="25" ControlType="XRLabel" Name="label15" Multiline="true" Text="ผู้ส่ง&#xD;&#xA;" SizeF="100,23" LocationFloat="34.6190834, 31.0476227" Padding="2,2,0,0,100" />
+      </Controls>
+    </Item4>
+    <Item5 Ref="26" ControlType="GroupHeaderBand" Name="GroupHeader1" HeightF="242.904831">
+      <Controls>
+        <Item1 Ref="27" ControlType="XRLabel" Name="label12" Multiline="true" Text="label12" SizeF="100,23" LocationFloat="512.000061, 193.203674" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="28" Expression="?pPhone" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item1>
+        <Item2 Ref="29" ControlType="XRLabel" Name="label11" Multiline="true" Text="label11" SizeF="100,23" LocationFloat="512.000061, 170.203659" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="30" Expression="?pCode" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item2>
+        <Item3 Ref="31" ControlType="XRLabel" Name="label10" Multiline="true" Text="label10" SizeF="100,23" LocationFloat="612.000061, 147.20369" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="32" Expression="?pProvince" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item3>
+        <Item4 Ref="33" ControlType="XRLabel" Name="label9" Multiline="true" Text="label9" SizeF="100,23" LocationFloat="512.000061, 147.20369" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="34" Expression="?pDistrict" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item4>
+        <Item5 Ref="35" ControlType="XRLabel" Name="label8" Multiline="true" Text="label8" SizeF="199.999939,23" LocationFloat="512.000061, 124.20372" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="36" Expression="?pAddr" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item5>
+        <Item6 Ref="37" ControlType="XRLabel" Name="label2" Multiline="true" Text="label2" SizeF="100,23" LocationFloat="512.000061, 101.20369" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="38" Expression="?pName" PropertyName="Text" EventName="BeforePrint" />
+          </ExpressionBindings>
+        </Item6>
+        <Item7 Ref="39" ControlType="XRLabel" Name="label14" Multiline="true" Text="ผู้รับ&#xD;&#xA;" SizeF="100,23" LocationFloat="512.000061, 52.97354" Padding="2,2,0,0,100" />
+      </Controls>
+    </Item5>
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v19.1" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2UgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxDb25uZWN0aW9uIE5hbWU9ImxvY2FsaG9zdF9Hb3JnZVNoaXBwaW5nX0Nvbm5lY3Rpb24iIEZyb21BcHBDb25maWc9InRydWUiIC8+PFF1ZXJ5IFR5cGU9IlNlbGVjdFF1ZXJ5IiBOYW1lPSJBZGRyZXNzZXMiPjxUYWJsZXM+PFRhYmxlIE5hbWU9IkFkZHJlc3NlcyIgLz48L1RhYmxlcz48Q29sdW1ucz48Q29sdW1uIFRhYmxlPSJBZGRyZXNzZXMiIE5hbWU9ImlkIiAvPjxDb2x1bW4gVGFibGU9IkFkZHJlc3NlcyIgTmFtZT0iVXNlcklkIiAvPjxDb2x1bW4gVGFibGU9IkFkZHJlc3NlcyIgTmFtZT0iQWRkcmVzc0RldGFpbCIgLz48Q29sdW1uIFRhYmxlPSJBZGRyZXNzZXMiIE5hbWU9IkRpc3RyaWN0IiAvPjxDb2x1bW4gVGFibGU9IkFkZHJlc3NlcyIgTmFtZT0iUHJvdmluY2UiIC8+PENvbHVtbiBUYWJsZT0iQWRkcmVzc2VzIiBOYW1lPSJDb2RlIiAvPjxDb2x1bW4gVGFibGU9IkFkZHJlc3NlcyIgTmFtZT0iTm90ZSIgLz48L0NvbHVtbnM+PE1ldGEgWD0iMjAiIFk9IjIwIiBXaWR0aD0iMTI0IiBIZWlnaHQ9IjE5NCIgLz48L1F1ZXJ5PjxRdWVyeSBUeXBlPSJTZWxlY3RRdWVyeSIgTmFtZT0iVXNlcnMiPjxUYWJsZXM+PFRhYmxlIE5hbWU9IlVzZXJzIiAvPjwvVGFibGVzPjxDb2x1bW5zPjxDb2x1bW4gVGFibGU9IlVzZXJzIiBOYW1lPSJpZCIgLz48Q29sdW1uIFRhYmxlPSJVc2VycyIgTmFtZT0iTmFtZSIgLz48Q29sdW1uIFRhYmxlPSJVc2VycyIgTmFtZT0iRW1haWwiIC8+PC9Db2x1bW5zPjxNZXRhIFg9IjE2NCIgWT0iMjAiIFdpZHRoPSIxMDAiIEhlaWdodD0iMTEwIiAvPjwvUXVlcnk+PFF1ZXJ5IFR5cGU9IlNlbGVjdFF1ZXJ5IiBOYW1lPSJUZWxlcGhvbmVOdW1iZXJzIj48VGFibGVzPjxUYWJsZSBOYW1lPSJUZWxlcGhvbmVOdW1iZXJzIiAvPjwvVGFibGVzPjxDb2x1bW5zPjxDb2x1bW4gVGFibGU9IlRlbGVwaG9uZU51bWJlcnMiIE5hbWU9ImlkIiAvPjxDb2x1bW4gVGFibGU9IlRlbGVwaG9uZU51bWJlcnMiIE5hbWU9IlRlbE51bWJlciIgLz48Q29sdW1uIFRhYmxlPSJUZWxlcGhvbmVOdW1iZXJzIiBOYW1lPSJVc2VySWQiIC8+PENvbHVtbiBUYWJsZT0iVGVsZXBob25lTnVtYmVycyIgTmFtZT0iSXNWZXJpZnkiIC8+PENvbHVtbiBUYWJsZT0iVGVsZXBob25lTnVtYmVycyIgTmFtZT0iSXNEZWZhdWx0IiAvPjwvQ29sdW1ucz48TWV0YSBYPSIyODQiIFk9IjIwIiBXaWR0aD0iMTY1IiBIZWlnaHQ9IjE1MiIgLz48L1F1ZXJ5PjxRdWVyeSBUeXBlPSJTZWxlY3RRdWVyeSIgTmFtZT0iX19FRk1pZ3JhdGlvbnNIaXN0b3J5Ij48VGFibGVzPjxUYWJsZSBOYW1lPSJfX0VGTWlncmF0aW9uc0hpc3RvcnkiIC8+PC9UYWJsZXM+PENvbHVtbnM+PENvbHVtbiBUYWJsZT0iX19FRk1pZ3JhdGlvbnNIaXN0b3J5IiBOYW1lPSJNaWdyYXRpb25JZCIgLz48Q29sdW1uIFRhYmxlPSJfX0VGTWlncmF0aW9uc0hpc3RvcnkiIE5hbWU9IlByb2R1Y3RWZXJzaW9uIiAvPjwvQ29sdW1ucz48TWV0YSBYPSI0NjkiIFk9IjIwIiBXaWR0aD0iMTg3IiBIZWlnaHQ9Ijg5IiAvPjwvUXVlcnk+PFJlc3VsdFNjaGVtYT48RGF0YVNldCBOYW1lPSJzcWxEYXRhU291cmNlMSI+PFZpZXcgTmFtZT0iQWRkcmVzc2VzIj48RmllbGQgTmFtZT0iaWQiIFR5cGU9Ikd1aWQiIC8+PEZpZWxkIE5hbWU9IlVzZXJJZCIgVHlwZT0iR3VpZCIgLz48RmllbGQgTmFtZT0iQWRkcmVzc0RldGFpbCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJEaXN0cmljdCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJQcm92aW5jZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJDb2RlIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Ik5vdGUiIFR5cGU9IlN0cmluZyIgLz48L1ZpZXc+PFZpZXcgTmFtZT0iVXNlcnMiPjxGaWVsZCBOYW1lPSJpZCIgVHlwZT0iR3VpZCIgLz48RmllbGQgTmFtZT0iTmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJFbWFpbCIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48VmlldyBOYW1lPSJUZWxlcGhvbmVOdW1iZXJzIj48RmllbGQgTmFtZT0iaWQiIFR5cGU9Ikd1aWQiIC8+PEZpZWxkIE5hbWU9IlRlbE51bWJlciIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJVc2VySWQiIFR5cGU9Ikd1aWQiIC8+PEZpZWxkIE5hbWU9IklzVmVyaWZ5IiBUeXBlPSJCb29sZWFuIiAvPjxGaWVsZCBOYW1lPSJJc0RlZmF1bHQiIFR5cGU9IkJvb2xlYW4iIC8+PC9WaWV3PjxWaWV3IE5hbWU9Il9fRUZNaWdyYXRpb25zSGlzdG9yeSI+PEZpZWxkIE5hbWU9Ik1pZ3JhdGlvbklkIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlByb2R1Y3RWZXJzaW9uIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjwvRGF0YVNldD48L1Jlc3VsdFNjaGVtYT48Q29ubmVjdGlvbk9wdGlvbnMgQ2xvc2VDb25uZWN0aW9uPSJ0cnVlIiAvPjwvU3FsRGF0YVNvdXJjZT4=" />
+  </ComponentStorage>
+</XtraReportsLayoutSerializer>

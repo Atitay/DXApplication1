@@ -23,8 +23,8 @@
                     <div class="dx-field-label">Find by Phone Number :</div>
                     <br />
                     <div class="active-3 mb-4">
-                        <input class="form-control mr-sm-2" type="text" id="myInput"
-                               onkeyup="SearchFunction()" placeholder="Search Phone Number" aria-label="Search" />
+                        <input class="form-control mr-sm-2" type="text" id="Input"
+                               onkeyup="function()" placeholder="Search Phone Number" aria-label="Search" />
                     </div>
                     <a asp-action="Index">Back to full List</a>
 
@@ -40,7 +40,7 @@
 
             <br /> <br />
             <div class="col">
-                <table id="myTable" class="table text-center  table-bordered table-sm">
+                <table  class="table text-center  table-bordered table-sm">
                     <tr class="table-info table-striped text-center">
                         <th>
                             @Html.DisplayNameFor(m => m.Name)
@@ -51,24 +51,38 @@
                         <th>
                             @Html.DisplayNameFor(m => m.FirstOrDefault().TelephoneNumbers.FirstOrDefault().TelNumber)
                         </th>
+                        <th>
+                            Phone Number 2
+                        </th>
 
                     </tr>
 
 
                     @foreach (var user in Model)
                     {
-                        <tr data-href="@Url.Action("Detail/"+user.id)">
-
-                            <td>
-                                @Html.DisplayFor(m => user.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(m => user.Email)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(m => user.TelDefault.TelNumber)
-                            </td>
-                        </tr>
+                        <tbody id="myTable">
+                            <tr data-href="@Url.Action("Detail/"+user.id)">
+                                <td>
+                                    @Html.DisplayFor(m => user.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(m => user.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(m => user.TelDefault.TelNumber)
+                                </td>
+                                @if (user.TelephoneNumbers.LastOrDefault().TelNumber != user.TelDefault.TelNumber)
+                                {
+                                    <td>
+                                        @Html.DisplayFor(m => user.TelephoneNumbers.LastOrDefault().TelNumber)
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td></td>
+                                }
+                            </tr>
+                        </tbody>
                     }
                 </table>
             </div>
@@ -76,31 +90,42 @@
         <div class="col-3"></div>
     </div>
 
-    <script>
-        function SearchFunction() {
-            var input, filter, table, tr, td, i, txtValue;
+    @*<script>
+            function SearchFunction() {
+                var input, filter, table, tr, td, i, txtValue;
 
-            input = document.getElementById("myInput");
-            table = document.getElementById("myTable");
+                input = document.getElementById("myInput");
+                table = document.getElementById("myTable");
 
-            filter = input.value.toUpperCase();
+                filter = input.value.toUpperCase();
 
-            tr = table.getElementsByTagName("tr");
+                tr = table.getElementsByTagName("tr");
 
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[2];
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[2];
 
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    }
-                    else {
-                        tr[i].style.display = "none";
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        }
+                        else {
+                            tr[i].style.display = "none";
+                        }
                     }
                 }
             }
-        }
+        </script>*@
+
+    <script>
+        $(document).ready(function () {
+            $("#Input").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
     </script>
 
     <script>

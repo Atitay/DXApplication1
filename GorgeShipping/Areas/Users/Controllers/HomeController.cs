@@ -18,6 +18,7 @@ namespace GorgeShipping.Controllers
 
         [BindProperty]
         public UserListViewModel UserListVM { get; set; }
+        public UserListViewModel list { get; set; }
 
         public HomeController(ApplicationDbContext db)
         {
@@ -94,6 +95,28 @@ namespace GorgeShipping.Controllers
             return View(UserListVM);
 
         }
+
+        public async Task<IActionResult> Print (Guid? id)
+        {
+            if (id == null)
+                return NotFound();
+
+            UserListVM.Users = await _db.Users.FirstOrDefaultAsync(u => u.id == id);
+
+            UserListVM.Addresses = await _db.Addresses.FirstOrDefaultAsync(u => u.UserId == id);
+            UserListVM.Addresses2 = await _db.Addresses.LastOrDefaultAsync(u => u.UserId == id);
+
+            UserListVM.TelephoneNumbers = await _db.TelephoneNumbers.FirstOrDefaultAsync(u => u.UserId == id);
+            UserListVM.TelephoneNumbers2 = await _db.TelephoneNumbers.LastOrDefaultAsync(u => u.UserId == id);
+
+
+            if (UserListVM.Users == null)
+            {
+                return NotFound();
+            }
+            return View(UserListVM);
+        }
+
 
     }
 }

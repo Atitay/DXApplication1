@@ -1,0 +1,72 @@
+﻿@model  GorgeShipping.Models.ViewModel.UserListViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Print</title>
+</head>
+<body>
+    <div class="col" style="padding-top:100px; font-size:32px; font-family:'Cordia New'">
+        <b>ผู้ส่ง</b>
+
+        <div class="col">
+            @Html.DisplayFor(m => m.Users.Name)
+        </div>
+        <div class="col-6">
+            @Html.DisplayFor(m => m.Addresses.AddressDetail)
+        </div>
+        <div class="col">
+            อำเภอ @Html.DisplayFor(m => m.Addresses.District)
+            จังหวัด @Html.DisplayFor(m => m.Addresses.Province)
+            @Html.DisplayFor(m => m.Addresses.Code)
+        </div>
+
+        <div class="col" style="font-size:30px; font-family:'Cordia New'">
+            <b>โทรศัพท์</b>
+            @Html.DisplayFor(m => m.TelephoneNumbers.TelNumber),
+            @Html.DisplayFor(m => m.TelephoneNumbers2.TelNumber)
+        </div>
+    </div>
+
+    <div class="form row">
+        <div class="col-6"></div>
+        <div class="col" style="padding-top:20px; font-size:32px; font-family:'Cordia New'">
+            <b>ผู้รับ</b>
+
+            <div class="col">
+                @Html.DisplayFor(m => m.Users.Name)
+            </div>
+            <div class="col">
+                @Html.DisplayFor(m => m.Addresses.AddressDetail)
+            </div>
+            <div class="col">
+                อำเภอ @Html.DisplayFor(m => m.Addresses.District)
+                จังหวัด @Html.DisplayFor(m => m.Addresses.Province)
+                @Html.DisplayFor(m => m.Addresses.Code)
+            </div>
+
+            <div class="col" style="font-size:30px; font-family:'Cordia New'">
+                <b>โทรศัพท์</b>
+                @Html.DisplayFor(m => m.TelephoneNumbers.TelNumber),
+                @Html.DisplayFor(m => m.TelephoneNumbers2.TelNumber)
+            </div>
+        </div>
+    </div>
+
+
+
+    <br /><br />
+          <div class="no-print">
+              <div class="row text-center" style="margin-left:0px; margin-right:0px;">
+                  <div class="col">
+                      <a class="btn btn-outline-primary no-print" href="javascript:window.print()">Print</a>
+                  </div>
+              </div>
+          </div>
+
+
+    <br /><br />
+</body>
+</html>
